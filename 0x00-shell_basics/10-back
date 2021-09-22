@@ -1,2 +1,2 @@
 #!/bin/bash
-cd /home/holberton-system_engineering-devops
+cd /tmp/var/../
