@@ -1,2 +1,2 @@
-## PWD
-__Display the absolute path name of the current work directory__
+## List Basic scripts
+__Display the basic scripts to shell navigation__
