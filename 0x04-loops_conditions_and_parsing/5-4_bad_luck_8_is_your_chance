@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# Script loops from 1 to 10
+i=1
+while [ $i -le 10 ]
+do
+	if [ $((i%4)) -eq 0 ] && [ $((i%8)) -ne 0 ]
+	then
+		echo "bad luck"
+	elif [ $((i%8)) -eq 0 ]
+	then
+		echo "good luck"
+	else
+		echo "Best School"
+	fi
+	((i++))
+done

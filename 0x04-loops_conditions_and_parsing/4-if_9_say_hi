@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# Use while to display "Best School" 10 times
+lim=0
+while [ $lim -lt 10 ]
+do
+	echo "Best School"
+	if [ $lim -eq 8 ]
+	then
+		echo "Hi"
+	fi
+	((lim++))
+done

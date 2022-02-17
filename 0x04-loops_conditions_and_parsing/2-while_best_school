@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Display "Best School" 10 times
+lim=0;
+while [ $lim -lt 10 ]
+do
+	echo "Best School"
+	lim=$((lim + 1)) # Arithmetic of variables
+done

@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Display content current directory, list format, only name
+for file in $(find . -maxdepth 1 | cut -d / -f2 | cut -d - -f2)
+do
+	if [[ $file =~ [a-zA-Z]|[0-9] ]]
+	then
+		echo "$file"
+	fi
+done
