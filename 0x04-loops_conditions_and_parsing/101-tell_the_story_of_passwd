@@ -1,14 +1,10 @@
 #!/usr/bin/env bash
 # The file /etc/passwd has already been covered in a previous project and 
-file="/etc/passwd"
-while IFS= read -r line
+filename="/etc/passwd"
+while IFS=: read -r f1 f2 f3 f4 f5 f6 f7
 do
-	i=1
-	while [ $i -le 7 ]
-	do
-		elm=$(echo "$line" | cut -d ":" -f $i)
-		coln[$i]=$elm
-		i=$(( i + 1 ))
-	done
-	echo "The user ${coln[1]} is part of the ${coln[4]} gang, lives in ${coln[6]} and rides ${coln[7]}. ${coln[3]}''ss place is protected by the passcode ${coln[2]}, more info about the user here: ${coln[5]}"
-done < "$file"
+	printf "The user %s is part of the %s gang, lives in %s and rides " "$f1" "$f4" "$f6"
+	printf "%s. %s's place is protected by the passcode %s, more info about the user here:" "$f7" "$f3" "$f2"
+	printf " %s" "$f5"
+	printf "\n"
+done < "$filename"
