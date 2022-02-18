@@ -13,3 +13,7 @@ trap [actions] [signal]
 #example
 trap 'echo "Signal detected: SIGINT"' SIGINT
 ```
+
+### Signal
+- SIGTERM(15): This signal send by the kill or pkill command
+- SIGSTOP(19), SIGKILL(9): Signals cannot be caught or ignored
