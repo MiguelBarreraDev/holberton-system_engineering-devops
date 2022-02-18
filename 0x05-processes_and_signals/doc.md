@@ -10,4 +10,6 @@
 - **Syntaxs**
 ```bash
 trap [actions] [signal]
+#example
+trap 'echo "Signal detected: SIGINT"' SIGINT
 ```
