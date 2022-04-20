@@ -1,4 +1,4 @@
-# nstall Nginx web server (All previous puppet)
+# Install Nginx web server (All previous puppet)
 
 exec {'install Nginx and redirect_me':
   provider => shell,
@@ -9,4 +9,4 @@ exec {'install Nginx and redirect_me':
                 sudo sed -i "s/server_name _;/server_name _;\n\trewrite ^\/redirect_me https:\/\/github.com\/MiguelBarreraDev permanent;/" \
                     /etc/nginx/sites-available/default ;\
                 sudo service nginx start',
-}I
+}
