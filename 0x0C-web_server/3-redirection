@@ -10,7 +10,6 @@ sudo chown -R ubuntu /var/www
 # Change default content in the file
 echo "Hello World" > /var/www/html/index.nginx-debian.html
 # The redirection must be a “301 Moved Permanently”.
-sudo sed -i "s/server_name _;/server_name _;\n\trewrite ^\/redirect_me https:\/\/github.com\/MiguelBarrera23 permanent;/" /etc/nginx/sites-available/default
-
+sudo sed -i "s/server_name _;/server_name _;\n\trewrite ^\/redirect_me https:\/\/github.com\/MiguelBarreraDev permanent;/" /etc/nginx/sites-available/default
 # Start service nginx
 sudo service nginx restart
