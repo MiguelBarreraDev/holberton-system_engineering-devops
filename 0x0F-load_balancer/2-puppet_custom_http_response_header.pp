@@ -14,17 +14,17 @@ exec {'update_packages':
 exec {'install_nginx':
   provider => shell,
   command  => 'sudo apt-get -y install nginx',
-  before   => Exec['add_header']
+  before   => Exec['add_header'],
 }
 
 exec {'add_header':
   provider    => 'shell',
   environment => ["HOST=${hostname}"],
   command     => 'sudo sed -i "s/^server\s{/server {\n\tadd_header X-Served-By $HOSTNAME;/1" /etc/nginx/sites-available/default',
-  before      => Exec['restart_nginx_service']
+  before      => Exec['restart_nginx_service'],
 }
 
 exec {'restart_nginx_service':
   provider => 'shell',
-  command  => 'sudo service nginx restart'
+  command  => 'sudo service nginx restart',
 }
