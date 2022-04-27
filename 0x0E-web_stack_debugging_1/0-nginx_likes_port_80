@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Nginx must listening on port 80 of all the server’s active IPv4 IPs
 sudo rm -f /etc/nginx/sites-enabled/default
 ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
 sudo service nginx restart
