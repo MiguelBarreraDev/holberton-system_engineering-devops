@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
 # Make it sweet and short
-sudo rm -f /etc/nginx/sites-enabled/default
-ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
-sudo service nginx stop
+ln -fs /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
+sudo pkill -1 nginx
