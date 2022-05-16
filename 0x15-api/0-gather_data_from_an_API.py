@@ -2,32 +2,31 @@
 """
     Gather data from an API
 """
+
+
 if __name__ == "__main__":
-    import requests
+    import json
     from sys import argv
+    from urllib import request as rq
 
-    # Data
-    ID = argv[1]
-    url_api = "https://jsonplaceholder.typicode.com"
+    employeeID = argv[1]
+    user_bio = {}
+    todo_list = []
+    done_tasks = []
+    _url_1 = 'https://jsonplaceholder.typicode.com/users'
+    _url_2 = 'https://jsonplaceholder.typicode.com/todos'
+    with rq.urlopen('{}/{}'.format(_url_1, employeeID)) as urlObj:
+        user_bio = json.loads(urlObj.read())
 
-    # Endpoints
-    ep_user = "{}/users/{}".format(url_api, str(ID))
-    ep_todos = "{}/todos".format(ep_user)
-    ep_todos_completed = "{}?completed=true".format(ep_todos)
+    with rq.urlopen(_url_2) as urlObj:
+        response = json.loads(urlObj.read())
+        for r in response:
+            if r.get('userId') == int(employeeID):
+                todo_list.append(r)
+                if r.get('completed') is True:
+                    done_tasks.append(r)
 
-    # Requests
-    user = requests.get(ep_user)
-    todos = requests.get(ep_todos)
-    todos_completed = requests.get(ep_todos_completed)
-
-    # Format
-    user = user.json()
-    todos = todos.json()
-    completed = todos_completed.json()
-
-    # Output
     print("Employee {} is done with tasks({}/{}):".format(
-        user.get("name"), len(completed), len(todos)
-    ))
-    for task in completed:
-        print("\t {}".format(task.get("title")))
+        user_bio.get('name'), len(done_tasks), len(todo_list)))
+    for task in done_tasks:
+        print("\t {}".format(task.get('title')))
