@@ -1,9 +1,8 @@
 #!/usr/bin/python3
 """Dictionary of list of dictionaries"""
-if __name__ = "__main__":
+if __name__ == "__main__":
     import json
     import requests
-    from sys import argv
 
     # Data
     url_api = "https://jsonplaceholder.typicode.com"
