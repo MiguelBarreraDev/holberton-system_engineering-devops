@@ -40,6 +40,8 @@ def count_words(subreddit, word_list):
     for word in word_list:
         dict_word[word] += titles.count(word)
 
-    for key, value in dict_word.items():
+    sort_dict = dict(sorted(dict_word.items(), key=lambda item: item[1]))
+
+    for key, value in sort_dict.items():
         if value > 0:
             print(f"{key}: {value}")
