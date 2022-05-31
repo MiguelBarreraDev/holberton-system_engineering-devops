@@ -22,8 +22,10 @@ def recurse(subreddit, hot_list=[], after=''):
         return hot_list
 
     if res.status_code == 200:
-        after = res.json().get('data').get('after')
-        hot_list += res.json().get('data').get('children')
+        res = res.json()
+        after = res.get('data').get('after')
+        hots = res.get('data').get('children')
+        hot_list += list(map(lambda elm: elm.get('data').get('title'), hots))
         return recurse(subreddit, hot_list, after)
     else:
         return None
