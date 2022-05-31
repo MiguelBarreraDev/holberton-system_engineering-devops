@@ -5,12 +5,10 @@
 import requests
 
 
-def recurse(subreddit, hot_list=[], after=''):
+def recurse(subreddit, hot_list=[], after=""):
     """List containing the titles of all hot articles for a given subreddit"""
-    api_url = 'https://www.reddit.com'
-
-    res = requests.get(f'{api_url}/r/{subreddit}/hot.json',
-                       headers={'user-agent': 'ineffale'},
+    url = 'https://www.reddit.com/r/{}/hot.json'.format(subreddit)
+    res = requests.get(url, headers={'User-Agent': 'AngentMEGO'},
                        params={'after': after})
 
     if after is None:
@@ -22,5 +20,4 @@ def recurse(subreddit, hot_list=[], after=''):
         hots = res.get('data').get('children')
         hot_list += list(map(lambda elm: elm.get('data').get('title'), hots))
         return recurse(subreddit, hot_list, after)
-    else:
-        return None
+    return None
