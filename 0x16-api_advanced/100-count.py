@@ -40,5 +40,6 @@ def count_words(subreddit, word_list):
     for word in word_list:
         dict_word[word] += titles.count(word)
 
-    for key, items in dict_word.items():
-        print(f"{key}: {word}")
+    for key, value in dict_word.items():
+        if value > 0:
+            print(f"{key}: {value}")
