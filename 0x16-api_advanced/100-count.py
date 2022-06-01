@@ -32,9 +32,10 @@ def my_sorted(my_dict):
     i = 0
     j = 0
     while len(result) < len(items_list):
-        band = j <= len(items_list) - 2
-        if band and items_list[j][1] == items_list[j + 1][1]:
-            while band and items_list[j][1] == items_list[j + 1][1]:
+        if j <= len(items_list) - 2 and\
+                items_list[j][1] == items_list[j + 1][1]:
+            while j <= len(items_list) - 2 and\
+                    items_list[j][1] == items_list[j + 1][1]:
                 j += 1
             sub = sorted(items_list[i:j + 1], key=lambda item: item[0])
             result += sub
